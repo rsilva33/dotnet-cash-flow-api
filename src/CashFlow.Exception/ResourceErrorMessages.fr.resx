@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNT_MUST_BE_GREATER_THAN_ZERO" xml:space="preserve">
-    <value>The amount must be greater than zero.</value>
+    <value>La valeur doit être supérieure à zéro.</value>
   </data>
   <data name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
-    <value>Expenses cannot be for the future.</value>
+    <value>Les dépenses ne peuvent pas être pour l’avenir.</value>
   </data>
   <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
-    <value>Payment type is not valid.</value>
+    <value>Le type de paiement n'est pas valide.</value>
   </data>
   <data name="TITLE_REQUIRED" xml:space="preserve">
-    <value>The title is required.</value>
+    <value>Le titre est obligatoire.</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
-    <value>Unknow error.</value>
+    <value>Erreur inconnue.</value>
   </data>
 </root>
