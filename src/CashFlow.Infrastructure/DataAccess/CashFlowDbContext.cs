@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace CashFlow.Infrastructure.DataAccess;
+﻿namespace CashFlow.Infrastructure.DataAccess;
 
 public class CashFlowDbContext : DbContext
 {
