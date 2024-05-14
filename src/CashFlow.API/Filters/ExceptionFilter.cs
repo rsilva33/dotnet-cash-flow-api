@@ -1,10 +1,4 @@
-﻿using CashFlow.Communication.Responses;
-using CashFlow.Exception;
-using CashFlow.Exception.ExceptionBase;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace CashFlow.Api.Filters;
+﻿namespace CashFlow.Api.Filters;
 
 public class ExceptionFilter : IExceptionFilter
 {

@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace CashFlow.Api.Middleware;
+﻿namespace CashFlow.Api.Middleware;
 
 public class CultureMiddleware
 {

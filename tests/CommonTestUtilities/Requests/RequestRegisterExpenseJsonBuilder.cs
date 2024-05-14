@@ -1,8 +1,5 @@
-﻿using Bogus;
-using CashFlow.Communication.Enums;
-using CashFlow.Communication.Requests;
+﻿namespace CommonTestUtilities.Requests;
 
-namespace CommonTestUtilities.Requests;
 public class RequestRegisterExpenseJsonBuilder
 {
     public static RequestRegisterExpenseJson Build()
