@@ -1,4 +1,4 @@
-﻿namespace CashFlow.Application.Configuration;
+﻿namespace CashFlow.Application.Configurations;
 
 public static class DependencyInjectionExtension
 {

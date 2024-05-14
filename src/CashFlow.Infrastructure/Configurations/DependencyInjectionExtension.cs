@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Infrastructure.Configuration;
+﻿using CashFlow.Domain.Abstractions.Repositories;
+
+namespace CashFlow.Infrastructure.Configurations;
 
 public static class DependencyInjectionExtension
 {
@@ -10,6 +12,7 @@ public static class DependencyInjectionExtension
 
     private static void AddRepositories(IServiceCollection services)
     {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IExpensesRepository, ExpensesRepository>();
     }
     

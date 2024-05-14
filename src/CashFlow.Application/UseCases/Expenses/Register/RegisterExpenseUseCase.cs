@@ -1,11 +1,16 @@
-﻿namespace CashFlow.Application.UseCases.Expenses.Register;
+﻿using CashFlow.Domain.Abstractions.Repositories;
+
+namespace CashFlow.Application.UseCases.Expenses.Register;
 
 public class RegisterExpenseUseCase : IRegisterExpenseUseCase
 {
     private readonly IExpensesRepository _expensesRepository;
-    public RegisterExpenseUseCase(IExpensesRepository expensesRepository)
+    private readonly IUnitOfWork _unitOfWork;
+
+    public RegisterExpenseUseCase(IExpensesRepository expensesRepository, IUnitOfWork unitOfWork)
     {
         _expensesRepository = expensesRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public ResponseRegisteredExpenseJson Execute(RequestRegisterExpenseJson request)
@@ -22,6 +27,8 @@ public class RegisterExpenseUseCase : IRegisterExpenseUseCase
         };
 
         _expensesRepository.Add(entity);
+
+        _unitOfWork.Commit();
 
         //to do validations
         return new ResponseRegisteredExpenseJson();
