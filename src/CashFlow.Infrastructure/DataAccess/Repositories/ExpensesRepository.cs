@@ -11,6 +11,10 @@ internal class ExpensesRepository : IExpensesRepository
         await _dbContext.Expenses.AddAsync(expense);
 
     public async Task<List<Expense>> GetAll() =>
-        await _dbContext.Expenses.ToListAsync();
+        await _dbContext.Expenses.AsNoTracking().ToListAsync();
+
+    public async Task<Expense?> GetById(long id) =>
+        await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+
 
 }
