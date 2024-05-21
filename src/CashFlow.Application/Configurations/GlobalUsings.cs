@@ -1,5 +1,4 @@
-﻿global using CashFlow.Application.Abstractions;
-global using CashFlow.Application.AutoMapper;
+﻿global using CashFlow.Application.AutoMapper;
 global using CashFlow.Application.UseCases.Expenses.Register;
 global using CashFlow.Communication.Requests;
 global using CashFlow.Communication.Responses;

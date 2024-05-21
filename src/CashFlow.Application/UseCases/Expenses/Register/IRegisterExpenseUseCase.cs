@@ -1,4 +1,4 @@
-﻿namespace CashFlow.Application.Abstractions;
+﻿namespace CashFlow.Application.UseCases.Expenses.Register;
 
 public interface IRegisterExpenseUseCase
 {

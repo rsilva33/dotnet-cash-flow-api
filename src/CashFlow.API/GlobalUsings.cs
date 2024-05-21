@@ -1,6 +1,5 @@
 ﻿global using CashFlow.Api.Filters;
 global using CashFlow.Api.Middleware;
-global using CashFlow.Application.Abstractions;
 global using CashFlow.Application.Configurations;
 global using CashFlow.Communication.Requests;
 global using CashFlow.Communication.Responses;

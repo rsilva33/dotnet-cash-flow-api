@@ -9,4 +9,8 @@ internal class ExpensesRepository : IExpensesRepository
 
     public async Task Add(Expense expense) =>
         await _dbContext.Expenses.AddAsync(expense);
+
+    public async Task<List<Expense>> GetAll() =>
+        await _dbContext.Expenses.ToListAsync();
+
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CashFlow.Communication.Responses;
 
 namespace CashFlow.Application.AutoMapper;
 
@@ -19,5 +20,6 @@ public class AutoMapping : Profile
     private void EntityToResponse()
     {
         CreateMap<Expense, ResponseRegisteredExpenseJson>();
+        CreateMap<Expense, ResponseShortExpenseJson>();
     }
 }
