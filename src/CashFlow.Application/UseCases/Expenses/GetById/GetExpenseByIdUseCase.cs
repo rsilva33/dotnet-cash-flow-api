@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace CashFlow.Application.UseCases.Expenses.GetById;
+﻿namespace CashFlow.Application.UseCases.Expenses.GetById;
 
 public class GetExpenseByIdUseCase : IGetExpenseByIdUseCase
 {
@@ -18,9 +16,7 @@ public class GetExpenseByIdUseCase : IGetExpenseByIdUseCase
         var result = await _repository.GetById(id);
 
         if (result is null)
-        {
-            //throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
-        }
+            throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
 
         return _mapper.Map<ResponseExpenseJson>(result);
     }
