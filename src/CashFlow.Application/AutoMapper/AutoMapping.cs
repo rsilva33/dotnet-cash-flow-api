@@ -13,7 +13,7 @@ public class AutoMapping : Profile
     private void RequestToEntity()
     {
         // De onde vem, para onde vai
-        CreateMap<RequestRegisterExpenseJson, Expense>();
+        CreateMap<RequestExpenseJson, Expense>();
     }
 
     private void EntityToResponse()
