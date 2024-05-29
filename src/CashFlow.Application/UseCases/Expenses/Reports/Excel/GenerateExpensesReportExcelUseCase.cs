@@ -28,6 +28,8 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
 
         InsertValues(expenses, workSheet);
 
+        workSheet.Columns().AdjustToContents();
+
         var file = new MemoryStream();
 
         workBook.SaveAs(file);
@@ -37,7 +39,7 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
 
     private static XLWorkbook Informations()
     {
-        var workBook = new XLWorkbook();
+        using var workBook = new XLWorkbook();
 
         workBook.Author = "Ronaldo Silva";
         workBook.Style.Font.FontSize = 12;
