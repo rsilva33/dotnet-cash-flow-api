@@ -10,7 +10,10 @@ global using CashFlow.Exception;
 global using CashFlow.Exception.ExceptionBase;
 global using FluentValidation;
 global using Microsoft.Extensions.DependencyInjection;
-
+global using CashFlow.Application.UseCases.Expenses.Delete;
+global using CashFlow.Application.UseCases.Expenses.GetAll;
+global using CashFlow.Application.UseCases.Expenses.GetById;
+global using CashFlow.Application.UseCases.Expenses.Update;
 
 
 
