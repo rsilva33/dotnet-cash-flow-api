@@ -1,5 +1,4 @@
-﻿
-namespace CashFlow.Infrastructure.DataAccess.Repositories;
+﻿namespace CashFlow.Infrastructure.DataAccess.Repositories;
 
 internal class ExpensesRepository : IExpensesReadOnlyRepository, 
                                     IExpensesWriteOnlyRepository,

@@ -1,8 +1,4 @@
-﻿
-
-using CashFlow.Application.UseCases.Expenses.Reports.Excel;
-
-namespace CashFlow.Application.Configurations;
+﻿namespace CashFlow.Application.Configurations;
 
 public static class DependencyInjectionExtension
 {
@@ -25,5 +21,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IDeleteExpenseUseCase, DeleteExpenseUseCase>();
         services.AddScoped<IUpdateExpenseUseCase, UpdateExpenseUseCase>();
         services.AddScoped<IGenerateExpensesReportExcelUseCase, GenerateExpensesReportExcelUseCase>();
+        services.AddScoped<IGenerateExpensesReportPdfUseCase, GenerateExpensesReportPdfUseCase>();
     }
 }

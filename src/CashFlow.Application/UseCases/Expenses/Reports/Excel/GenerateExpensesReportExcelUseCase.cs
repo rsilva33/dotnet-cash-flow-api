@@ -1,8 +1,4 @@
-﻿using CashFlow.Domain.Extensions;
-using CashFlow.Domain.Reports;
-using ClosedXML.Excel;
-
-namespace CashFlow.Application.UseCases.Expenses.Reports.Excel;
+﻿namespace CashFlow.Application.UseCases.Expenses.Reports.Excel;
 
 public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUseCase
 {
