@@ -22,6 +22,19 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
 
         var document = CreateDocument(month);
 
+        var page = CreatePage(document);
+
+        var paragraph = page.AddParagraph();
+
+        var title = string.Format(ResourceReportGenerationMessages.TOTAL_SPENT_IN, month.ToString("Y"));
+
+        paragraph.AddFormattedText(title, new Font { Name = FontHelper.RELAWAY_REGULAR, Size = 15 });
+        paragraph.AddLineBreak();
+
+        var totalExpenses = expenses.Sum(expenses => expenses.Amount);
+
+        paragraph.AddFormattedText($"{totalExpenses} {CURRENCY_SYMBOL}", new Font { Name = FontHelper.WORKSANS_BLACK, Size = 50 });
+
         return [];
     }
 
@@ -37,5 +50,20 @@ public class GenerateExpensesReportPdfUseCase : IGenerateExpensesReportPdfUseCas
         style!.Font.Name = FontHelper.RELAWAY_REGULAR;
 
         return document;
+    }
+
+    private Section CreatePage(Document document)
+    {
+        var section = document.AddSection();
+
+        section.PageSetup = document.DefaultPageSetup.Clone();
+
+        section.PageSetup.PageFormat = PageFormat.A4;
+        section.PageSetup.LeftMargin = 40; //px
+        section.PageSetup.RightMargin = 40;
+        section.PageSetup.TopMargin = 80;
+        section.PageSetup.BottomMargin = 80;
+
+        return section;
     }
 }
