@@ -23,5 +23,9 @@ global using Microsoft.Extensions.DependencyInjection;
 global using MigraDoc.DocumentObjectModel;
 global using PdfSharp.Fonts;
 global using System.Reflection;
+global using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Colors;
+global using MigraDoc.DocumentObjectModel.Tables;
+global using MigraDoc.Rendering;
+
 
 

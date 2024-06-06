@@ -1,6 +1,4 @@
-﻿using CashFlow.Domain.Reports;
-
-namespace CashFlow.Domain.Extensions;
+﻿namespace CashFlow.Domain.Extensions;
 
 public static class PaymentTypeExtensions
 {
