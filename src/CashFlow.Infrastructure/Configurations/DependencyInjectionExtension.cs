@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Infrastructure.Configurations;
+﻿using CashFlow.Domain.Abstractions.Security.Cryptograpy;
+
+namespace CashFlow.Infrastructure.Configurations;
 
 public static class DependencyInjectionExtension
 {
@@ -6,6 +8,8 @@ public static class DependencyInjectionExtension
     {
         AddRepositories(services);
         AddDbContext(services, configuration);
+
+        services.AddScoped<IPasswordEncripter, Security.BCrypt>();
     }
 
     private static void AddRepositories(IServiceCollection services)

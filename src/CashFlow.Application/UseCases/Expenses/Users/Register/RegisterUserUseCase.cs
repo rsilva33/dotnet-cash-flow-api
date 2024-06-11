@@ -1,12 +1,16 @@
-﻿namespace CashFlow.Application.UseCases.Expenses.Users.Register;
+﻿using CashFlow.Domain.Abstractions.Security.Cryptograpy;
+
+namespace CashFlow.Application.UseCases.Expenses.Users.Register;
 
 public class RegisterUserUseCase : IRegisterUserUseCase
 {
     private readonly IMapper _mapper;
+    private readonly IPasswordEncripter _passwordEncripter;
 
-    public RegisterUserUseCase(IMapper mapper)
+    public RegisterUserUseCase(IMapper mapper, IPasswordEncripter passwordEncripter)
     {
         _mapper = mapper;
+        _passwordEncripter = passwordEncripter;
     }
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson request)
@@ -14,6 +18,8 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         Validate(request);
 
         var user = _mapper.Map<User>(request);
+
+        user.Password = _passwordEncripter.Encrypt(user.Password);
 
         return new ResponseRegisteredUserJson
         {
