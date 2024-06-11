@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Application.Configurations;
+﻿using CashFlow.Application.UseCases.Expenses.Users.Register;
+
+namespace CashFlow.Application.Configurations;
 
 public static class DependencyInjectionExtension
 {
@@ -22,5 +24,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IUpdateExpenseUseCase, UpdateExpenseUseCase>();
         services.AddScoped<IGenerateExpensesReportExcelUseCase, GenerateExpensesReportExcelUseCase>();
         services.AddScoped<IGenerateExpensesReportPdfUseCase, GenerateExpensesReportPdfUseCase>();
+        services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
     }
 }

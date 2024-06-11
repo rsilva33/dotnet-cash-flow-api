@@ -17,25 +17,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceErrorMessages.pt-PT.resx</DependentUpon>
     </Compile>
-    <Compile Update="ResourceErrorMessages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceErrorMessages.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="ResourceErrorMessages.fr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceErrorMessages.fr.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ResourceErrorMessages.pt-BR.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Update="ResourceErrorMessages.pt-PT.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceErrorMessages.pt-PT.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Update="ResourceErrorMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceErrorMessages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
