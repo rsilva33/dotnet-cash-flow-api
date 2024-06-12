@@ -10,7 +10,7 @@ public static class DependencyInjectionExtension
         AddRepositories(services);
         AddDbContext(services, configuration);
 
-        services.AddScoped<IPasswordEncripter, Security.BCrypt>();
+        services.AddScoped<IPasswordEncripter, Security.Cryptography.BCrypt>();
     }
 
     private static void AddRepositories(IServiceCollection services)

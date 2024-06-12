@@ -35,7 +35,6 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         user.UserIdentifier = Guid.NewGuid();
 
         await _userWriteOnlyRepository.Add(user);
-
         await _unitOfWork.CommitAsync();
 
         return new ResponseRegisteredUserJson
