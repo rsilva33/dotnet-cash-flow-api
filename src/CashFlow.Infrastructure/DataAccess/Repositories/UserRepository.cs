@@ -2,7 +2,8 @@
 
 namespace CashFlow.Infrastructure.DataAccess.Repositories;
 
-internal class UserRepository : IUserReadOnlyRepository
+internal class UserRepository : IUserReadOnlyRepository, 
+                                IUserWriteOnlyRepository
 {
     private readonly CashFlowDbContext _dbContext;
 
@@ -11,4 +12,8 @@ internal class UserRepository : IUserReadOnlyRepository
 
     public async Task<bool> ExistActiveUserWithEmail(string email) =>
         await _dbContext.Users.AnyAsync(user => user.Email.Equals(email));
+
+    public async Task Add(User user) =>
+        await _dbContext.Users.AddAsync(user);
+
 }

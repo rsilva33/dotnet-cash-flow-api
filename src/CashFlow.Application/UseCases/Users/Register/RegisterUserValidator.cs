@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Application.UseCases.Expenses.Users.Register;
+﻿using CashFlow.Application.UseCases.Expenses.Users;
+
+namespace CashFlow.Application.UseCases.Users.Register;
 
 internal class RegisterUserValidator : AbstractValidator<RequestRegisterUserJson>
 {

@@ -1,4 +1,4 @@
-﻿namespace CashFlow.Application.UseCases.Expenses.Users.Register;
+﻿namespace CashFlow.Application.UseCases.Users.Register;
 
 public interface IRegisterUserUseCase
 {

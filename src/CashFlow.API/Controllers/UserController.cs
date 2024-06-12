@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Users.Register;
+﻿using CashFlow.Application.UseCases.Users.Register;
 
 namespace CashFlow.Api.Controllers;
 
