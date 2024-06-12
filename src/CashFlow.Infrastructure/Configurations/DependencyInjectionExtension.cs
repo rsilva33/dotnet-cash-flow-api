@@ -1,4 +1,5 @@
-﻿using CashFlow.Domain.Abstractions.Security.Cryptograpy;
+﻿using CashFlow.Domain.Abstractions.Repositories.User;
+using CashFlow.Domain.Abstractions.Security.Cryptograpy;
 
 namespace CashFlow.Infrastructure.Configurations;
 
@@ -18,6 +19,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IExpensesWriteOnlyRepository, ExpensesRepository>();
         services.AddScoped<IExpensesReadOnlyRepository, ExpensesRepository>();
         services.AddScoped<IExpensesUpdateOnlyRepository, ExpensesRepository>();
+        services.AddScoped<IUserReadOnlyRepository, UserRepository>();
     }
     
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)

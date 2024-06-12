@@ -179,5 +179,16 @@ namespace CashFlow.Exception
                 return ResourceManager.GetString("UNKNOWN_ERROR", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to EMAIL_ALREADY_REGISTERED error.
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTERED
+        {
+            get
+            {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
     }
 }
