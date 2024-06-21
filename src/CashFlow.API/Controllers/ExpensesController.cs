@@ -1,7 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Update;
-using Microsoft.AspNetCore.Authorization;
-
-namespace CashFlow.Api.Controllers;
+﻿namespace CashFlow.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

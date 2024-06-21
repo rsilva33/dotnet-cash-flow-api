@@ -4,10 +4,8 @@ internal class UnitOfWork : IUnitOfWork
 {
     private readonly CashFlowDbContext _context;
 
-    public UnitOfWork(CashFlowDbContext context)
-    {
+    public UnitOfWork(CashFlowDbContext context) =>
         _context = context;
-    }
 
     public async Task CommitAsync() =>
         await _context.SaveChangesAsync();

@@ -1,0 +1,13 @@
+global using Xunit;
+global using CashFlow.Application.UseCases.Users.Register;
+global using CommonTestUtilities.Cryptography;
+global using CommonTestUtilities.Mapper;
+global using CommonTestUtilities.Repositories;
+global using CommonTestUtilities.Requests;
+global using CommonTestUtilities.Token;
+global using FluentAssertions;
+global using CommonTestUtilities.Entities;
+global using CashFlow.Application.UseCases.Login.DoLogin;
+global using CashFlow.Domain.Entities;
+global using CashFlow.Exception;
+global using CashFlow.Exception.ExceptionBase;

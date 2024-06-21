@@ -1,6 +1,4 @@
-﻿using CashFlow.Application.UseCases.Users.Register;
-
-namespace CashFlow.Api.Controllers;
+﻿namespace CashFlow.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

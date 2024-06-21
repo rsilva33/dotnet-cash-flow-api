@@ -1,6 +1,4 @@
-﻿using CashFlow.Application.UseCases.Login.DoLogin;
-
-namespace CashFlow.Api.Controllers;
+﻿namespace CashFlow.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

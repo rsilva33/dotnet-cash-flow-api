@@ -1,6 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Reports.Pdf;
-
-namespace CashFlow.Api.Controllers;
+﻿namespace CashFlow.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

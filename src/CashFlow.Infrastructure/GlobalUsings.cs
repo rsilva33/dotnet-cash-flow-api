@@ -6,5 +6,6 @@ global using CashFlow.Infrastructure.DataAccess.Repositories;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-
+global using CashFlow.Domain.Abstractions.Security.Cryptograpy;
+global using BC = BCrypt.Net.BCrypt;
 
