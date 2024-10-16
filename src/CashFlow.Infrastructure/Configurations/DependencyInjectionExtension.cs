@@ -13,7 +13,7 @@ public static class DependencyInjectionExtension
         AddRepositories(services);
         AddDbContext(services, configuration);
 
-        services.AddScoped<IPasswordEncripter, Security.Cryptography.BCrypt>();
+        services.AddScoped<IPasswordEncrypter, Security.Cryptography.BCrypt>();
     }
 
     private static void AddToken(this IServiceCollection services, IConfiguration configuration)
