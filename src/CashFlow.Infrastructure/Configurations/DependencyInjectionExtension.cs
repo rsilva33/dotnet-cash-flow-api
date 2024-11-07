@@ -1,9 +1,4 @@
-﻿using CashFlow.Domain.Abstractions.Repositories.User;
-using CashFlow.Domain.Abstractions.Security.Cryptograpy;
-using CashFlow.Domain.Abstractions.Security.Tokens;
-using CashFlow.Infrastructure.Security.Tokens;
-
-namespace CashFlow.Infrastructure.Configurations;
+﻿namespace CashFlow.Infrastructure.Configurations;
 
 public static class DependencyInjectionExtension
 {
@@ -41,7 +36,7 @@ public static class DependencyInjectionExtension
     {
         var connectionString = configuration.GetConnectionString("Connection");
 
-        var serverVersion = new MySqlServerVersion(new Version(8, 0, 36));
+        var serverVersion = ServerVersion.AutoDetect(connectionString);
 
         services.AddDbContext<CashFlowDbContext>(config =>
             config.UseMySql(connectionString, serverVersion));
