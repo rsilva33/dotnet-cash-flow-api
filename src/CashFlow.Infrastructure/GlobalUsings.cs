@@ -10,5 +10,6 @@ global using CashFlow.Infrastructure.Security.Tokens;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
+global using CashFlow.Infrastructure.Extensions;
 global using BC = BCrypt.Net.BCrypt;
 

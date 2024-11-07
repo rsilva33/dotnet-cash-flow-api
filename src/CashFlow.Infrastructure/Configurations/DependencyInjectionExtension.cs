@@ -4,11 +4,13 @@ public static class DependencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<IPasswordEncrypter, Security.Cryptography.BCrypt>();
+
         AddToken(services, configuration);
         AddRepositories(services);
-        AddDbContext(services, configuration);
 
-        services.AddScoped<IPasswordEncrypter, Security.Cryptography.BCrypt>();
+        if (configuration.IsTestEnvironment() is false)
+            AddDbContext(services, configuration);
     }
 
     private static void AddToken(this IServiceCollection services, IConfiguration configuration)
