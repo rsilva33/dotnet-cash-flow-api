@@ -1,7 +1,4 @@
-﻿using CashFlow.Exception;
-using System.Text.Json;
-
-namespace WebApi.Test.Users.Register;
+﻿namespace WebApi.Test.Users.Register;
 
 public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
 {
@@ -31,11 +28,14 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
         response.RootElement.GetProperty("token").GetString().Should().NotBeNullOrEmpty();
     }
 
-    [Fact]
-    public async Task Error_Empty_Name()
+    [Theory]
+    [ClassData(typeof(CultureInlineDataTest))]
+    public async Task Error_Empty_Name(string cultureInfo)
     {
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Name = string.Empty;
+
+        _httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(cultureInfo));
 
         var result = await _httpClient.PostAsJsonAsync(METHOD, request);
         result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
@@ -46,7 +46,9 @@ public class RegisterUserTest : IClassFixture<CustomWebApplicationFactory>
 
         var errors = response.RootElement.GetProperty("errorMessage").EnumerateArray();
 
+        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("NAME_EMPTY", new CultureInfo(cultureInfo));
+
         errors.Should().HaveCount(1).And.Contain(error => 
-            error.GetString()!.Equals(ResourceErrorMessages.NAME_EMPTY));
+            error.GetString()!.Equals(expectedMessage));
     }
 }
