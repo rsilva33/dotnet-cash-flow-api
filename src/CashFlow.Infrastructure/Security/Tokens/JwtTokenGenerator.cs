@@ -1,10 +1,4 @@
-﻿using CashFlow.Domain.Abstractions.Security.Tokens;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-
-namespace CashFlow.Infrastructure.Security.Tokens;
+﻿namespace CashFlow.Infrastructure.Security.Tokens;
 
 internal class JwtTokenGenerator : IAccessTokenGenerator
 {
