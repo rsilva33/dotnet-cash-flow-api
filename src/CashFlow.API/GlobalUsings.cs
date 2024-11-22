@@ -25,4 +25,6 @@ global using Microsoft.OpenApi.Models;
 global using System.Globalization;
 global using System.Net.Mime;
 global using System.Text;
+global using CashFlow.Api.Token;
+global using CashFlow.Domain.Abstractions.Security.Tokens;
 global using CashFlow.Infrastructure.Extensions;

@@ -1,11 +1,14 @@
-﻿namespace CashFlow.Infrastructure.Configurations;
+﻿using CashFlow.Infrastructure.Services.LoggedUser;
+
+namespace CashFlow.Infrastructure.Configurations;
 
 public static class DependencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IPasswordEncrypter, Security.Cryptography.BCrypt>();
-
+        services.AddScoped<ILoggedUser, LoggedUser>();
+        
         AddToken(services, configuration);
         AddRepositories(services);
 
