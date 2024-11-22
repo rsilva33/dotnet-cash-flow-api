@@ -18,8 +18,8 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository,
     async Task<Expense?> IExpensesReadOnlyRepository.GetById(long id) =>
         await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
 
-    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(long id) =>
-        await _dbContext.Expenses.FirstOrDefaultAsync(e => e.Id == id);
+    async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(User user, long id) =>
+        await _dbContext.Expenses.FirstOrDefaultAsync(e => e.Id == id && e.UserId == user.Id);
 
     public void Update(Expense expense) =>
         _dbContext.Expenses.Update(expense);
