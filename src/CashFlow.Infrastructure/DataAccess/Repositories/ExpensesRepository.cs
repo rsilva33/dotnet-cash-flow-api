@@ -12,11 +12,11 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository,
     public async Task Add(Expense expense) =>
         await _dbContext.Expenses.AddAsync(expense);
 
-    public async Task<List<Expense>> GetAll() =>
-        await _dbContext.Expenses.AsNoTracking().ToListAsync();
+    public async Task<List<Expense>> GetAll(User user) =>
+        await _dbContext.Expenses.AsNoTracking().Where(e => e.UserId == user.Id).ToListAsync();
 
-    async Task<Expense?> IExpensesReadOnlyRepository.GetById(long id) =>
-        await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+    async Task<Expense?> IExpensesReadOnlyRepository.GetById(User user, long id) =>
+        await _dbContext.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id && e.UserId == user.Id);
 
     async Task<Expense?> IExpensesUpdateOnlyRepository.GetById(User user, long id) =>
         await _dbContext.Expenses.FirstOrDefaultAsync(e => e.Id == id && e.UserId == user.Id);
@@ -24,16 +24,11 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository,
     public void Update(Expense expense) =>
         _dbContext.Expenses.Update(expense);
 
-    public async Task<bool> Delete(long id)
+    public async Task Delete(long id)
     {
-        var result = await _dbContext.Expenses.FirstOrDefaultAsync(expense => expense.Id == id);
-        
-        if (result is null)
-            return false;
+        var result = await _dbContext.Expenses.FindAsync(id);
 
-        _dbContext.Expenses.Remove(result);
-
-        return true;
+        _dbContext.Expenses.Remove(result!);
     }
 
     public async Task<List<Expense>> FilterByMonth(DateOnly date)

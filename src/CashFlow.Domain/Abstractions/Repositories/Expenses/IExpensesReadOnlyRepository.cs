@@ -2,7 +2,7 @@
 
 public interface IExpensesReadOnlyRepository
 {
-    Task<List<Expense>> GetAll();
-    Task<Expense?> GetById(long id);
+    Task<List<Expense>> GetAll(Entities.User user);
+    Task<Expense?> GetById(Entities.User user, long id);
     Task<List<Expense>> FilterByMonth(DateOnly date);
 }
