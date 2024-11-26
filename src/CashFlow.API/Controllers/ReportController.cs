@@ -1,7 +1,10 @@
-﻿namespace CashFlow.Api.Controllers;
+﻿using CashFlow.Domain.Enums;
+
+namespace CashFlow.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize(Roles = Roles.ADMIN)]
 public class ReportController : ControllerBase
 {
     [HttpGet("excel")]

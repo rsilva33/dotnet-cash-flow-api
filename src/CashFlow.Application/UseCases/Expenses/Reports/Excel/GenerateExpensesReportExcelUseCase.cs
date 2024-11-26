@@ -5,18 +5,28 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
     private const string CURRENCY_SYMBOL = "€";
 
     private readonly IExpensesReadOnlyRepository _repository;
+    private readonly ILoggedUser _loggedUser;
 
-    public GenerateExpensesReportExcelUseCase(IExpensesReadOnlyRepository repository) =>
+    public GenerateExpensesReportExcelUseCase(IExpensesReadOnlyRepository repository, ILoggedUser loggedUser)
+    {
         _repository = repository;
+        _loggedUser = loggedUser;
+    }
 
     public async Task<byte[]> Execute(DateOnly month)
     {
-        var expenses = await _repository.FilterByMonth(month);
+        var loggedUser = await _loggedUser.Get();
+        
+        var expenses = await _repository.FilterByMonth(loggedUser, month);
 
         if (expenses.Count is 0)
             return [];
 
-        var workBook = Informations();
+        using var workBook = new XLWorkbook();
+
+        workBook.Author = loggedUser.Name;
+        workBook.Style.Font.FontSize = 12;
+        workBook.Style.Font.FontName = "Times New Roman";
 
         var workSheet = workBook.Worksheets.Add(month.ToString("Y"));
 
