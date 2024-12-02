@@ -1,3 +1,4 @@
+global using CashFlow.Application.UseCases.Expenses.Register;
 global using Xunit;
 global using CashFlow.Application.UseCases.Users.Register;
 global using CommonTestUtilities.Cryptography;
@@ -11,3 +12,4 @@ global using CashFlow.Application.UseCases.Login.DoLogin;
 global using CashFlow.Domain.Entities;
 global using CashFlow.Exception;
 global using CashFlow.Exception.ExceptionBase;
+global using CommonTestUtilities.LoggedUser;

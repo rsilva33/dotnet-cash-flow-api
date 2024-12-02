@@ -1,4 +1,5 @@
 ﻿using CashFlow.Domain.Abstractions.Security.Cryptograpy;
+using CashFlow.Domain.Abstractions.Security.Tokens;
 
 namespace WebApi.Test;
 
@@ -6,6 +7,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     private User _user;
     private string _password;
+    private string _token;
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Test")
@@ -24,13 +26,17 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 var passwordEncripter = scope.ServiceProvider.GetRequiredService<IPasswordEncrypter>();
                 
                 StartDatabase(dbContext, passwordEncripter);
+                
+                var tokenGenerator = scope.ServiceProvider.GetRequiredService<IAccessTokenGenerator>();
+                _token = tokenGenerator.Generate(_user);
             });
     }
     
     public string GetEmail() => _user!.Email;
     public string GetName() => _user!.Name;
     public string GetPassword() => _password;
-
+    public string GetToken() => _token;
+    
     private void StartDatabase(CashFlowDbContext dbContext, IPasswordEncrypter passwordEncrypter)
     {
         _user = UserBuilder.Build();
