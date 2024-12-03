@@ -1,7 +1,4 @@
-﻿using CashFlow.Domain.Abstractions.Security.Cryptograpy;
-using CashFlow.Domain.Abstractions.Security.Tokens;
-
-namespace WebApi.Test;
+﻿namespace WebApi.Test;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
@@ -23,7 +20,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
                 var scope = services.BuildServiceProvider().CreateScope();
                 var dbContext = scope.ServiceProvider.GetRequiredService<CashFlowDbContext>();
-                var passwordEncripter = scope.ServiceProvider.GetRequiredService<IPasswordEncrypter>();
+                var passwordEncripter = scope.ServiceProvider.GetRequiredService<IPasswordEncripter>();
                 
                 StartDatabase(dbContext, passwordEncripter);
                 
@@ -37,15 +34,28 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     public string GetPassword() => _password;
     public string GetToken() => _token;
     
-    private void StartDatabase(CashFlowDbContext dbContext, IPasswordEncrypter passwordEncrypter)
+    private void StartDatabase(CashFlowDbContext dbContext, IPasswordEncripter passwordEncripter)
+    {
+        AddUsers(dbContext, passwordEncripter);
+        AddExpenses(dbContext, _user);
+
+        dbContext.SaveChanges();
+    }
+
+    private void AddUsers(CashFlowDbContext dbContext, IPasswordEncripter passwordEncripter)
     {
         _user = UserBuilder.Build();
         _password = _user.Password;
-        
-        _user.Password = passwordEncrypter.Encrypt(_user.Password);
-        
-        dbContext.Users.Add(_user);
 
-        dbContext.SaveChanges();
+        _user.Password = passwordEncripter.Encrypt(_user.Password);
+
+        dbContext.Users.Add(_user);
+    }
+
+    private void AddExpenses(CashFlowDbContext dbContext, User user)
+    {
+        var expense = ExpenseBuilder.Build(user);
+
+        dbContext.Expenses.Add(expense);
     }
 }

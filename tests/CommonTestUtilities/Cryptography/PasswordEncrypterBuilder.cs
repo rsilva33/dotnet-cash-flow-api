@@ -2,11 +2,11 @@
 
 public class PasswordEncrypterBuilder
 {
-    private readonly Mock<IPasswordEncrypter> _mock;
+    private readonly Mock<IPasswordEncripter> _mock;
 
     public PasswordEncrypterBuilder()
     {
-        _mock = new Mock<IPasswordEncrypter>();
+        _mock = new Mock<IPasswordEncripter>();
 
         _mock.Setup(passwordEncrypter => 
             passwordEncrypter.Encrypt(It.IsAny<string>())).Returns("!%dlfjkd545");
@@ -21,5 +21,5 @@ public class PasswordEncrypterBuilder
         return this;
     }
 
-    public IPasswordEncrypter Build() => _mock.Object;
+    public IPasswordEncripter Build() => _mock.Object;
 }

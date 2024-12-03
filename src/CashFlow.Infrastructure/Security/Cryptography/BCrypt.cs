@@ -1,6 +1,6 @@
 ﻿namespace CashFlow.Infrastructure.Security.Cryptography;
 
-internal class BCrypt : IPasswordEncrypter
+internal class BCrypt : IPasswordEncripter
 {
     public string Encrypt(string password)
     {

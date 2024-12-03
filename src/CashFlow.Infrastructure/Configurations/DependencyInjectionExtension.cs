@@ -6,7 +6,7 @@ public static class DependencyInjectionExtension
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IPasswordEncrypter, Security.Cryptography.BCrypt>();
+        services.AddScoped<IPasswordEncripter, Security.Cryptography.BCrypt>();
         services.AddScoped<ILoggedUser, LoggedUser>();
         
         AddToken(services, configuration);
