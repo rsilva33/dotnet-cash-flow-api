@@ -1,3 +1,4 @@
+global using CashFlow.Application.UseCases.Expenses.GetById;
 global using CashFlow.Application.UseCases.Expenses.Register;
 global using Xunit;
 global using CashFlow.Application.UseCases.Users.Register;

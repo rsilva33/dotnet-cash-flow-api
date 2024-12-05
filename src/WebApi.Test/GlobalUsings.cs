@@ -16,6 +16,7 @@ global using CashFlow.Communication.Requests;
 global using CashFlow.Domain.Abstractions.Security.Cryptograpy;
 global using CashFlow.Domain.Abstractions.Security.Tokens;
 global using CashFlow.Domain.Entities;
+global using CashFlow.Domain.Enums;
 global using CommonTestUtilities.Entities;
 global using WebApi.Test.InlineData;
 
