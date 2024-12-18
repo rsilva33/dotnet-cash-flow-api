@@ -8,14 +8,14 @@ public class DeleteExpenseUseCase : IDeleteExpenseUseCase
     private readonly ILoggedUser _loggedUser;
 
     public DeleteExpenseUseCase(
-        IExpensesReadOnlyRepository expensesReadOnly,
         IExpensesWriteOnlyRepository repository,
+        IExpensesReadOnlyRepository expensesReadOnly,
         IUnitOfWork unitOfWork,
         ILoggedUser loggedUser
         )
     {
-        _expensesReadOnly = expensesReadOnly;
         _repository = repository;
+        _expensesReadOnly = expensesReadOnly;
         _unitOfWork = unitOfWork;
         _loggedUser = loggedUser;
     }
