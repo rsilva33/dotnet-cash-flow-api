@@ -19,5 +19,6 @@ global using CashFlow.Domain.Entities;
 global using CashFlow.Domain.Enums;
 global using CommonTestUtilities.Entities;
 global using WebApi.Test.InlineData;
+global using WebApi.Test.Resources;
 
 
