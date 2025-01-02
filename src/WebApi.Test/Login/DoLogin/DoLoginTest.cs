@@ -4,7 +4,6 @@ public class DoLoginTest : CashFlowClassFixture
 {
     private const string METHOD = "api/Login";
 
-    private readonly HttpClient _httpClient;
     private readonly string _email;
     private readonly string _password;
     private readonly string _name;
@@ -23,22 +22,23 @@ public class DoLoginTest : CashFlowClassFixture
         {
             Email = _email,
             Password = _password
-        };
+        }; 
 
-        var response = await DoPost(requestUri: METHOD, request: request);
-
+        var response = await DoPost(requestUri: METHOD, request: request); 
+        
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-
+        
         var responseBody = await response.Content.ReadAsStreamAsync();
-
+        
         var responseData = await JsonDocument.ParseAsync(responseBody);
-
+        
         responseData.RootElement.GetProperty("name").GetString().Should().Be(_name);
+        
         responseData.RootElement.GetProperty("token").GetString().Should().NotBeNullOrWhiteSpace();
     }
 
     [Theory]
-    [ClassData((typeof(CultureInlineDataTest)))]
+    [ClassData(typeof(CultureInlineDataTest))]
     public async Task Error_Login_Invalid(string culture)
     {
         var request = RequestLoginJsonBuilder.Build();

@@ -4,10 +4,8 @@ public class CashFlowClassFixture : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _httpClient;
 
-    public CashFlowClassFixture(CustomWebApplicationFactory webApplicationFactory)
-    {
+    public CashFlowClassFixture(CustomWebApplicationFactory webApplicationFactory) =>
         _httpClient = webApplicationFactory.CreateClient();
-    }
 
     protected async Task<HttpResponseMessage> DoPost(
         string requestUri,
@@ -19,6 +17,18 @@ public class CashFlowClassFixture : IClassFixture<CustomWebApplicationFactory>
         ChangeRequestCulture(culture);
 
         return await _httpClient.PostAsJsonAsync(requestUri, request);
+    }
+
+    protected async Task<HttpResponseMessage> DoPut(
+        string requestUri,
+        object request,
+        string token,
+        string culture = "en")
+    {
+        AuthorizeRequest(token);
+        ChangeRequestCulture(culture);
+
+        return await _httpClient.PutAsJsonAsync(requestUri, request);
     }
     
     protected async Task<HttpResponseMessage> DoGet(

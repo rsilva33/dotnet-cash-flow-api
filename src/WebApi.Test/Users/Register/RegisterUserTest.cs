@@ -33,9 +33,7 @@ public class RegisterUserTest : CashFlowClassFixture
     {
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Name = string.Empty;
-
-        _httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(culture));
-
+        
         var result = await DoPost(requestUri: METHOD, request: request, culture: culture);
         result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 

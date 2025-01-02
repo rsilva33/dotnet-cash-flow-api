@@ -48,7 +48,7 @@ public class GetExpenseByIdTest : CashFlowClassFixture
 
         var response = await JsonDocument.ParseAsync(body);
 
-        var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray();
+        var errors = response.RootElement.GetProperty("errorMessage").EnumerateArray();
 
         var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("EXPENSE_NOT_FOUND", new CultureInfo(culture));
 
