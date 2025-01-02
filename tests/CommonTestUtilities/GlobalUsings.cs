@@ -9,6 +9,7 @@ global using CashFlow.Domain.Abstractions.Repositories.User;
 global using CashFlow.Domain.Abstractions.Security.Cryptograpy;
 global using CashFlow.Domain.Abstractions.Security.Tokens;
 global using CashFlow.Domain.Entities;
+global using CashFlow.Domain.Enums;
 global using CashFlow.Domain.Services.LoggedUser;
 global using CommonTestUtilities.Cryptography;
 global using Moq;

@@ -1,4 +1,6 @@
-﻿namespace CommonTestUtilities.Requests;
+﻿using PaymentType = CashFlow.Communication.Enums.PaymentType;
+
+namespace CommonTestUtilities.Requests;
 
 public class RequestExpenseJsonBuilder
 {
