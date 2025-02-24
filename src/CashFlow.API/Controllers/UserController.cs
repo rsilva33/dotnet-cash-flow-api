@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Api.Controllers;
+﻿using CashFlow.Application.UseCases.Users.Profile;
+
+namespace CashFlow.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -14,5 +16,15 @@ public class UserController : ControllerBase
         var response = await useCase.Execute(request);
 
         return Created(string.Empty, response);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(ResponseUserProfileJson), StatusCodes.Status200OK)]
+    [Authorize]
+    public async Task<IActionResult> GetProfile([FromServices] IGetUserProfileUseCase useCase)
+    {
+        var response = await useCase.Execute();
+        
+        return Ok(response);
     }
 }
