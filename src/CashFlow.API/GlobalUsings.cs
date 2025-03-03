@@ -28,3 +28,5 @@ global using System.Text;
 global using CashFlow.Api.Token;
 global using CashFlow.Domain.Abstractions.Security.Tokens;
 global using CashFlow.Infrastructure.Extensions;
+global using CashFlow.Application.UseCases.Expenses.Users.Update;
+global using CashFlow.Application.UseCases.Users.Profile;

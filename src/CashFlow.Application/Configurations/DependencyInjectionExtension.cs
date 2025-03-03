@@ -1,6 +1,4 @@
-﻿using CashFlow.Application.UseCases.Login.DoLogin;
-using CashFlow.Application.UseCases.Users.Profile;
-using CashFlow.Application.UseCases.Users.Register;
+﻿
 
 namespace CashFlow.Application.Configurations;
 
@@ -29,5 +27,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
+        services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
     }
 }
