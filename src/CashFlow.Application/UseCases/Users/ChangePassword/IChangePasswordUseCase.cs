@@ -1,6 +1,6 @@
 namespace CashFlow.Application.UseCases.Expenses.Users.ChangePassword;
 
-public class IChangePasswordUseCase
+public interface IChangePasswordUseCase
 {
-    
+    Task Execute(RequestChangePasswordJson request);
 }

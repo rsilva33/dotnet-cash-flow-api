@@ -1,5 +1,7 @@
 ﻿
 
+using CashFlow.Application.UseCases.Expenses.Users.ChangePassword;
+
 namespace CashFlow.Application.Configurations;
 
 public static class DependencyInjectionExtension
@@ -28,5 +30,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+        services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
     }
 }

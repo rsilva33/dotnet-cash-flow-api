@@ -201,5 +201,16 @@ namespace CashFlow.Exception
                 return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to PASSWORD_DIFFERENT_CURRENT_PASSWORD error.
+        /// </summary>
+        public static string PASSWORD_DIFFERENT_CURRENT_PASSWORD
+        {
+            get
+            {
+                return ResourceManager.GetString("PASSWORD_DIFFERENT_CURRENT_PASSWORD", resourceCulture);
+            }
+        }
     }
 }
