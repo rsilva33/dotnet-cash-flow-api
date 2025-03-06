@@ -1,6 +1,7 @@
 ﻿
 
 using CashFlow.Application.UseCases.Expenses.Users.ChangePassword;
+using CashFlow.Application.UseCases.Users.Delete;
 
 namespace CashFlow.Application.Configurations;
 
@@ -31,5 +32,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
         services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+        services.AddScoped<IDeleteUserAccountUseCase, DeleteUserAccountUseCase>();
+
     }
 }
