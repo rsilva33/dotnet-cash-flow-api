@@ -1,5 +1,5 @@
-﻿namespace Validators.Tests.Expenses.Register;
-public class RegisterExpenseValidatorTests
+﻿namespace Validators.Tests.Expenses;
+public class ExpenseValidatorTests
 {
     [Fact]
     public void Success()
@@ -96,5 +96,21 @@ public class RegisterExpenseValidatorTests
         result.Errors.Should()
             .ContainSingle().And
             .Contain(error => error.ErrorMessage.Equals(ResourceErrorMessages.AMOUNT_MUST_BE_GREATER_THAN_ZERO));
+    }
+
+    [Fact]
+    public void Error_Tag_Invalid()
+    {
+        //Arrange
+        var validator = new ExpenseValidator();
+        var request = RequestExpenseJsonBuilder.Build();
+        request.Tags.Add((Tag)221);
+
+        //Act
+        var result = validator.Validate(request);
+
+        //Assert
+        result.IsValid.Should().BeFalse();
+        result.Errors.Should().ContainSingle().And.Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.TAG_TYPE_NOT_SUPPORTED));
     }
 }
