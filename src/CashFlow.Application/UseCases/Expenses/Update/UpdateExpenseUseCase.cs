@@ -28,10 +28,9 @@ public class UpdateExpenseUseCase : IUpdateExpenseUseCase
 
         var loggedUser = await _loggedUser.Get();
 
-        var expense = await _repository.GetById(loggedUser, id);
+        var expense = await _repository.GetById(loggedUser, id) ?? throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
 
-        if (expense is null)
-            throw new NotFoundException(ResourceErrorMessages.EXPENSE_NOT_FOUND);
+        expense.Tags.Clear();
 
         _mapper.Map(request, expense);
 
